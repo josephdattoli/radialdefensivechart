@@ -1,1 +1,1 @@
-# radialdefensivechart
+# radialdefensivechartwill use this for baseball defensive charting the app itself is just data collectionread me in progress
