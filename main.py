@@ -12,7 +12,7 @@ Created on Fri Oct  2 21:24:37 2020
 import tkinter as tk
 from datetime import datetime
 import pandas as pd
-
+from PIL import ImageTk,Image
 #       print(time,self.get_player(),self.get_pos(),self.get_play(),self.get_direction(),self.get_speed(),self.get_bb(),self.get_base(),self.get_out(),get_align)
 temp_df = pd.DataFrame(columns = ['Time', 'Player', 'Pos', 'Alignment', 'Base State', 'Out State', 'Batted Ball Type','Batted Ball Speed', 'Batted Ball Direction','Play Made', 'Extra Notes'])
 
@@ -20,11 +20,11 @@ temp_df.to_csv(r'C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\temp.
 
 def submit_to_full():
     print('start')
-    df_full = pd.read_csv(r"C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\full_list.csv")
+    df_full = pd.read_csv(r"C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\full_list_test.csv")
     df_temp = pd.read_csv(r"C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\temp.csv")
     
     df_full = df_full.append(df_temp, ignore_index = True)
-    df_full.to_csv(r"C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\full_list.csv")
+    df_full.to_csv(r"C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\full_list_test.csv", index = False)
     print('finish')    
 
 def temp_writer(time,player,pos,align,base,out,bbt,bbs,bbd,play,note):
@@ -68,21 +68,21 @@ class App(tk.Frame):
         self.label_submit.grid(row =0, column =10 )
         
         self.button_submit = tk.Button(self, text = 'Submit' , command = self.submit_choices)
-        self.button_submit.grid(row = 1, column = 10, padx= 5)
+        self.button_submit.grid(row = 3, column = 10, padx= 5)
         
         #play and direction stuff
 
         self.label_play = tk.Label(self, text = "Play")
-        self.label_play.grid(row = 0, column =2)
+        self.label_play.grid(row = 2, column =0)
         
         self.label_dir = tk.Label(self, text = "Direction")
-        self.label_dir.grid(row = 0, column =3)
+        self.label_dir.grid(row = 2, column =3)
         
         self.label_speed = tk.Label(self, text = "Speed of Batted Ball")
-        self.label_speed.grid(row = 0, column =4)
+        self.label_speed.grid(row = 2, column =1)
         
         self.label_bbt = tk.Label(self, text = "Batted Ball Type")
-        self.label_bbt.grid(row = 0, column =5)
+        self.label_bbt.grid(row = 2, column =2)
         
         self.play_var = tk.StringVar()
         self.direction_var = tk.StringVar()
@@ -90,21 +90,21 @@ class App(tk.Frame):
         self.bb_var = tk.StringVar()
         
         
-        self.options_play = ['Error Front Field', 'Error Directional Field', 'Error Throw', 'Field Front','Field Directional']
+        self.options_play = ['Error Front Field', 'Error Directional Field','Error Backhand', 'Error Forehand' ,'Error Throw', 'Field Front','Field Directional','Field Directional', 'Field Backhand', 'Field Forehand']
         self.play_menu = tk.OptionMenu(self,self.play_var,*self.options_play)
-        self.play_menu.grid(row = 1, column = 2, padx = 15)
+        self.play_menu.grid(row = 3, column = 0, padx = 15)
         
-        self.options_direction = ['North','NE''East','SE','South','SW','West','NW']
+        self.options_direction = ['North','NE','East','SE','South','SW','West','NW']
         self.direction_menu = tk.OptionMenu(self,self.direction_var,*self.options_direction)
-        self.direction_menu.grid(row = 1, column = 3, padx = 15)
+        self.direction_menu.grid(row = 3, column = 3, padx = 15)
         
         self.options_speed = ['Soft','Med','Hard']
         self.speed_menu = tk.OptionMenu(self,self.speed_var,*self.options_speed)
-        self.speed_menu.grid(row = 1, column = 4, padx = 15)
+        self.speed_menu.grid(row = 3, column = 1, padx = 15)
         
         self.options_bb = ['Bunt','Chop','GB','LD','Flare','FB','PU']
         self.bb_menu = tk.OptionMenu(self,self.bb_var,*self.options_bb)
-        self.bb_menu.grid(row = 1, column = 5, padx = 15)
+        self.bb_menu.grid(row = 3, column = 2, padx = 15)
 
         ## Situation
         self.options_base = ['---','1--','-2-','--3','12-','1-3','-23','123']
@@ -114,40 +114,40 @@ class App(tk.Frame):
         
         
         self.label_base = tk.Label(self, text = 'Base State')
-        self.label_base.grid(row =0, column = 6)
+        self.label_base.grid(row =0, column = 2)
         self.label_out = tk.Label(self, text = 'Out State')
-        self.label_out.grid(row =0, column = 7)
+        self.label_out.grid(row =0, column = 3)
         
         self.base_menu = tk.OptionMenu(self,self.base_var,*self.options_base)
-        self.base_menu.grid(row = 1, column = 6, padx = 15)
+        self.base_menu.grid(row = 1, column = 2, padx = 15)
         
         self.out_menu = tk.OptionMenu(self,self.out_var,*self.options_out)
-        self.out_menu.grid(row = 1, column = 7, padx = 15)
+        self.out_menu.grid(row = 1, column = 3, padx = 15)
         
         self.options_align = ['Straight UP','In','Left Pull','Left Shade', 'Right Pull', 'Right Shade', 'DP']
         self.align_var = tk.StringVar()
         
         self.label_align = tk.Label(self, text = 'Def Align')
-        self.label_align.grid(row =0, column = 8)
+        self.label_align.grid(row =0, column = 4)
 
         
         self.align_menu = tk.OptionMenu(self,self.align_var,*self.options_align)
-        self.align_menu.grid(row = 1, column = 8, padx = 15)
+        self.align_menu.grid(row = 1, column = 4, padx = 15)
         
         #notes
         self.label_note = tk.Label(self, text = 'Notes:')
-        self.label_note.grid(row = 0, column = 9)
+        self.label_note.grid(row = 2, column = 4)
 
         self.note_entry = tk.Entry(self)
-        self.note_entry.grid(row = 1, column = 9)
+        self.note_entry.grid(row = 3, column = 4)
         
         ##submit to full csv
         self.label_final = tk.Label(self,text='SUBMIT TO FULL LIST')
-        self.label_final.grid(row = 6, column = 5)
+        self.label_final.grid(row = 6, column = 3, pady =25)
         
         
         self.button_final = tk.Button(self, text = 'Submit' , command = self.submit_all)
-        self.button_final.grid(row = 7, column = 5, padx= 5)
+        self.button_final.grid(row = 7, column = 3, )
         
         
     #(time,player,pos,align,base,out,bbt,bbs,bbd):
@@ -190,16 +190,18 @@ class App(tk.Frame):
         return self.note_entry.get()   
     
 
-if __name__ == "__main__":
+if __name__ == "__main__":  
     
     root = tk.Tk()
-    root.title("Defensive Chart")
+    root.title("Defensive Chart  v0.0.1 Pre-Alpha")
+    canvas = tk.Canvas(root, width = 150, height = 150)  
+    canvas.grid(row=0)  
+    img = ImageTk.PhotoImage(Image.open(r"C:\Users\joedattoli\Documents\GitHub\radialdefensivechart\main_logo.png"))  
+    canvas.create_image(75, 75, image=img) 
     app = App(root)
-    app.pack()
+    app.grid(row =1)
 
-    
-   
-    
+
 
     root.mainloop()
 

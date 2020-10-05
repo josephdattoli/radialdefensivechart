@@ -1,0 +1,8 @@
+Time,Player,Pos,Alignment,Base State,Out State,Batted Ball Type,Batted Ball Speed,Batted Ball Direction,Play Made,Extra Notes
+2020-10-05 15:02:21.066559,Wilbur,SS,In,--3,2,Chop,Med,South,Field Front,Threw home and got runner. Double clutched
+2020-10-05 15:03:12.326698,Hendricks,2B,DP,1--,1,GB,Med,NW,Field Directional,Had all the time in the world and booted it
+2020-10-05 15:04:08.062118,Burgos,1B,In,123,0,GB,Med,SW,Field Backhand,TESTEST
+2020-10-05 15:02:21.066559,Wilbur,SS,In,--3,2,Chop,Med,South,Field Front,Threw home and got runner. Double clutched
+2020-10-05 15:03:12.326698,Hendricks,2B,DP,1--,1,GB,Med,NW,Field Directional,Had all the time in the world and booted it
+2020-10-05 15:04:08.062118,Burgos,1B,In,123,0,GB,Med,SW,Field Backhand,TESTEST
+2020-10-05 15:04:34.479635,Wilbur,2B,In,12-,2,GB,Soft,SW,Error Directional Field,This should not be in a different column than other notes

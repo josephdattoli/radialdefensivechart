@@ -1,17 +1,3 @@
-Unnamed: 0,Time,Player,Pos,Alignment,Base State,Out State,Batted Ball Type,Batted Ball Speed,Batted Ball Direction,Play Made,Extra Notes
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
-,,,,,,,,,,,
+Time,Player,Pos,Alignment,Base State,Out State,Batted Ball Type,Batted Ball Speed,Batted Ball Direction,Play Made,Extra Notes
+2020-10-05 14:57:24.783235,Wilbur,C,Straight UP,---,0,LD,Med,South,Field Forehand,112233322211111
+2020-10-05 14:57:34.248003,Hendricks,C,Straight UP,---,0,GB,Med,East,Error Directional Field,112233322211111
